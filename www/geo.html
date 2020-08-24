@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+  <title>GeoLocation Example</title>
+
+  <script type="text/javascript">
+	
+	if(navigator.geolocation == undefined){
+		alert("Geolocation undefined");
+	}else{
+		alert("Geolocation Available");
+
+		//missing code 1: call to getCurrentPosition function
+        navigator.geolocation.getCurrentPosition(userLocated,
+locationError);
+
+		
+		//missing code 2: define function userLocated
+        function userLocated(position){
+var latitude = position.coords.latitude;
+var longitude = position.coords.longitude;
+alert ("Lat:"+latitude +", Long:"+longitude);
+}
+
+
+		function locationError(error){
+			alert("Error code: " + error.code);
+			//Replace this alert with proper error handling, using a switch case statement
+			//Details are provided in the slides
+            switch(error.code) {
+case error.PERMISSION_DENIED:
+alert("Permission Denied- " + error.message);
+break;
+case error.POSITION_UNAVAILABLE:
+alert("Position Not Available- "+ error.message);
+break;
+case error.TIMEOUT:
+alert("Request Time out- "+ error.message);
+break;
+}
+}//end the function
+}//end the else blo
+		
+		
+		
+	
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
